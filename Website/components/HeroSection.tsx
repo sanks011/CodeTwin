@@ -17,7 +17,7 @@ export default function HeroSection() {
   const opacity = useTransform(scrollY, [0, 800], [1, 0.5])
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-start pt-36 pb-16 px-6 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-start pt-12 md:pt-20 pb-24 px-6 overflow-hidden">
       {/* Layered radial glow */}
       <div
         className="pointer-events-none absolute inset-0"
@@ -31,6 +31,37 @@ export default function HeroSection() {
       />
 
       <div className="relative z-10 flex flex-col items-center text-center max-w-4xl w-full">
+        {/* Product Hunt badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, ease: easeOut }}
+          className="mb-5"
+        >
+          <a
+            href="https://www.producthunt.com/products/codetwin?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-codetwin"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex items-center justify-center overflow-hidden rounded-2xl border border-border-default bg-surface/70 px-4 py-2.5 backdrop-blur-sm shadow-[0_10px_30px_rgba(10,10,10,0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#a6a6ed66] hover:shadow-[0_16px_40px_rgba(166,166,237,0.16)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a6a6ed] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          >
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#a6a6ed1f] via-transparent to-[#2dd4bf1a] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+            />
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-2 bg-[#a6a6ed1a] blur-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+            />
+            <img
+              alt="CodeTwin on Product Hunt"
+              width={230}
+              height={50}
+              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1138895&theme=light&t=1777963463144"
+              className="relative z-10 h-10 md:h-11 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
+            />
+          </a>
+        </motion.div>
+
         {/* Eyebrow badge */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
